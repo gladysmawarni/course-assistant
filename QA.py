@@ -24,7 +24,7 @@ os.environ['OPENAI_API_KEY'] = st.secrets['OPENAI_API_KEY']
 st.set_page_config(page_title="Q&A", page_icon="🤖")
 
 # webapp title
-st.title('Course Assistant')
+st.title('GenieRAG, the RAG and Gen AI Course Assistant')
 
 # Vector DB
 embeddings = OpenAIEmbeddings()
@@ -47,9 +47,10 @@ def generate_response(context, query) -> str:
         # Define the role of the assistant and prepare the prompt
         system = """You are a data science instructor. Answer the student's question professionally and concisely, using only the information provided within the given context. 
         Avoid introducing any external information. Refer to previous conversations when relevant to provide a clear and thorough response, addressing any lingering doubts. 
-        Ensure that your answer includes the following:
-        - The name(s) of the relevant Section(s)
-        - The name(s) of the specific Lecture(s)
+        Ensure that your response includes the following:
+        - Answering the question, and identify and mention the relevant Section(s) and Lecture(s) from which the information is drawn.
+        - Suggest additional related lectures by saying, 'If you want to know more, check the following lectures (located in Section X).'
+        - Ask if the student has further questions or needs clarification
         """
         # prompt template, format the system message and user question
         TEMPLATE = ChatPromptTemplate.from_messages(
@@ -78,7 +79,15 @@ for memory in st.session_state.memories:
 if st.session_state.state == None:
     with st.chat_message("assistant"):
         intro = """
-                 Hello! Do you have any questions I can help with today?
+                 Hi there! I’m GenieRAG, your assistant for the RAG and Generative AI with Python course. I can help with topics such as:\n
+                ◦ Fundamentals of Retrieval Systems \n
+                ◦ Basics of Generation Models \n
+                ◦ RAG (Retrieval-Augmented Generation) Architecture \n
+                ◦ RAG with OpenAI Integration \n
+                ◦ Handling Unstructured Data \n
+                ◦ Multimodal RAG \n
+                ◦ Agentic RAG \n
+                Do you have any questions on these topics or a specific section?
                   \n"""
         st.write(intro)
     # Add intro message to chat history
