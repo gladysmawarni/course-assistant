@@ -37,7 +37,7 @@ def stream_data(response):
         time.sleep(0.04)
 
 def get_context(preference):
-    docs_faiss = vector_db.similarity_search_with_relevance_scores(preference, k=10)
+    docs_faiss = vector_db.similarity_search_with_relevance_scores(preference, k=3)
     return docs_faiss
 
 
