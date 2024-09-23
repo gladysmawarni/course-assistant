@@ -37,7 +37,7 @@ def stream_data(response):
         time.sleep(0.04)
 
 def get_context(preference):
-    docs_faiss = vector_db.similarity_search_with_relevance_scores(preference, k=3)
+    docs_faiss = vector_db.similarity_search_with_relevance_scores(preference, k=10)
     return docs_faiss
 
 
@@ -63,7 +63,7 @@ def generate_response(context, query) -> str:
         )
         prompt = TEMPLATE.format(chat_history= st.session_state.memories, context= context, query=query)
 
-        model = ChatOpenAI(model="gpt-4o")
+        model = ChatOpenAI(model="gpt-4o-mini")
         response_text = model.invoke(prompt).content
         st.session_state.memories.append({"role": "assistant", "content": response_text})
 
