@@ -20,7 +20,10 @@ with st.form("feedback_form"):
             "Bot Did Not Understand My Question", 
             "Bot Provided an Incorrect or Irrelevant Answer", 
             "Bot Response Was Too Slow or Unhelpful", 
-            "Bot Response Was Confusing or Incomplete"
+            "Bot Response Was Confusing or Incomplete",
+            "Bot Answered My Question Accurately and Clearly",
+            "Bot Was Helpful and Responsive",
+            "Bot Helped Me Learn Something New",
         ),
     )
 
