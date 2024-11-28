@@ -24,7 +24,7 @@ os.environ['OPENAI_API_KEY'] = st.secrets['OPENAI_API_KEY']
 st.set_page_config(page_title="Q&A", page_icon="🤖")
 
 # webapp title
-st.title('GenieRAG, the RAG and Gen AI Course Assistant')
+st.title('Cyber Diogo, the RAG, AI Agents and Gen AI Course Assistant')
 
 # Vector DB
 embeddings = OpenAIEmbeddings()
@@ -79,14 +79,11 @@ for memory in st.session_state.memories:
 if st.session_state.state == None:
     with st.chat_message("assistant"):
         intro = """
-                 Hi there! I’m GenieRAG, your assistant for the RAG and Generative AI with Python course. I can help with topics such as:\n
-                ◦ Fundamentals of Retrieval Systems \n
-                ◦ Basics of Generation Models \n
-                ◦ RAG (Retrieval-Augmented Generation) Architecture \n
-                ◦ RAG with OpenAI Integration \n
-                ◦ Handling Unstructured Data \n
-                ◦ Multimodal RAG \n
-                ◦ Agentic RAG \n
+                 Hi there! I’m Cyber Diogo, your assistant for the RAG, AI Agents and Generative AI with Python course. I can help with topics such as:\n
+                ◦ RAG: Fundamentals, Unstructured Data, Multimodal, Agentic \n
+                ◦ AI Agents: OpenAI Swarm, CrewAI \n
+                ◦ OpenAI API: Text and Images, Whisper, Embeddings, Fine Tuning. \n
+
                 Do you have any questions on these topics or a specific section?
                   \n"""
         st.write(intro)
