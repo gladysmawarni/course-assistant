@@ -69,7 +69,7 @@ def generate_response(context, query) -> str:
         )
         prompt = TEMPLATE.format(chat_history= st.session_state.memories, context= context, query=query)
 
-        model = ChatOpenAI(model="gpt-5-nano")
+        model = ChatOpenAI(model="gpt-4o-mini")
         response_text = model.invoke(prompt).content
         st.session_state.memories.append({"role": "assistant", "content": response_text})
 
